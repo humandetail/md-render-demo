@@ -1,0 +1,111 @@
+
+.hd__outline {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 300px;
+  height: 100%;
+
+  @media screen and (max-width: 640px) {
+    display: none;
+  }
+
+  .outline-container {
+    position: fixed;
+    height: calc(100% - 60px);
+    overflow-y: auto;
+
+    .table-of-contents {
+      // position: fixed;
+      // width: 300px;
+      // height: calc(100% - 60px);
+      padding: 20px 20px 20px 10px;
+      background-color: #f5f6f6;
+      overflow-y: auto;
+      box-sizing: border-box;
+  
+      ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        counter-reset: item;
+        height: 100%;
+  
+        li {
+          margin: 10px 0;
+          padding-left: 1em;
+        }
+  
+        a {
+          display: block; 
+          position: relative;
+          padding-left: 10px;
+          font-size: 16px;
+          line-height: 20px;
+          color: #333;
+          text-decoration: none;
+          word-break: break-all;
+          white-space: pre-wrap;
+  
+          &.active {
+            color: #0098ff;
+            font-weight: 700;
+          }
+          
+  
+          &:hover,
+          &:focus {
+            color: #0098ff;
+          }
+        }
+      }
+  
+      & > ol {
+        
+        & > li {
+          & > a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #333;
+          }
+  
+          & > ol {
+            & > li {
+              & > a::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 6px;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                border: 1px solid #333;
+                box-sizing: border-box;
+              }
+  
+              & > ol {
+                li {
+                  & > a::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 8px;
+                    width: 6px;
+                    height: 6px;
+                    background-color: #333;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
